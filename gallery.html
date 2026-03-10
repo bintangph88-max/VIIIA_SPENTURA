@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kelas VIII-A- Gallery</title>
+<style>
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #5a5470;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 16px 90px;
+  }
+  .container {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  h1, h2 {
+    text-align: center;
+  }
+  h1 {
+    font-size: 2.7rem;
+    font-weight: 900;
+    margin-bottom: 6px;
+  }
+  h2 {
+    font-size: 1rem;
+    font-weight: normal;
+    opacity: 0.85;
+    margin-bottom: 18px;
+    letter-spacing: 1.2px;
+  }
+  /* Gallery grid */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 100%;
+  }
+  .gallery-item {
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    cursor: pointer;
+    transition: transform 0.25s ease;
+  }
+  .gallery-item:hover {
+    transform: scale(1.05);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .bottom-nav-wrapper {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 450px;
+    width: 90vw;
+  }
+  .bottom-nav {
+    background: rgba(100, 86, 146, 0.7);
+    box-shadow: 0 0 15px rgba(0,0,0,0.45);
+    border-radius: 35px;
+    padding: 12px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .bottom-nav button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline-offset: 4px;
+    outline: none;
+    padding: 6px 10px;
+    border-radius: 24px;
+    position: relative;
+    transition: background 0.3s ease;
+    min-width: 70px;
+  }
+  .bottom-nav button i {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+  }
+  .bottom-nav button:hover,
+  .bottom-nav button:focus {
+    background: rgba(255 255 255 / 0.15);
+  }
+  .bottom-nav button.active {
+    background: white;
+    color: #5a5470;
+    box-shadow: 0 0 8px white;
+  }
+  @media(max-width:400px) {
+    h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="container" role="main" aria-label="Halaman Galeri C Engineering 1">
+    <h1>C Engineering 1</h1>
+    <h2>SMK GLOBAL MULIA</h2>
+
+    <div class="gallery-grid" aria-label="Galeri foto">
+      <div class="gallery-item" tabindex="0" aria-label="Foto kegiatan 1">
+        <img src="https://i.ibb.co/ZmVbXq1/photo1.jpg" alt="Kegiatan kelas 1" />
+      </div>
+      <div class="gallery-item" tabindex="0" aria-label="Foto kegiatan 2">
+        <img src="https://i.ibb.co/tmfhyWP/photo2.jpg" alt="Kegiatan kelas 2" />
+      </div>
+      <div class="gallery-item" tabindex="0" aria-label="Foto kegiatan 3">
+        <img src="https://i.ibb.co/2F5M7Pp/photo3.jpg" alt="Kegiatan kelas 3" />
+      </div>
+      <div class="gallery-item" tabindex="0" aria-label="Foto kegiatan 4">
+        <img src="https://i.ibb.co/FmjTw3B/photo4.jpg" alt="Kegiatan kelas 4" />
+      </div>
+      <!-- Tambah gambar sesuai kebutuhan -->
+    </div>
+  </div>
+
+  <nav class="bottom-nav-wrapper" role="navigation" aria-label="Navigasi utama">
+    <div class="bottom-nav">
+      <button type="button" aria-label="Gallery" id="btnGallery" class="active">
+        <i class="far fa-image" aria-hidden="true"></i>
+        Gallery
+      </button>
+      <button type="button" aria-label="Home" id="btnHome">
+        <i class="fas fa-home" aria-hidden="true"></i>
+        Home
+      </button>
+      <button type="button" aria-label="Schedules" id="btnSchedules">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        Schedules
+      </button>
+    </div>
+  </nav>
+
+<script>
+  const btnGallery = document.getElementById('btnGallery');
+  const btnHome = document.getElementById('btnHome');
+  const btnSchedules = document.getElementById('btnSchedules');
+
+  btnGallery.addEventListener('click', () => {
+    // Already on Gallery page
+  });
+  btnHome.addEventListener('click', () => {
+    window.location.href = 'index.html';
+  });
+  btnSchedules.addEventListener('click', () => {
+    window.location.href = 'schedules.html';
+  });
+</script>
+</body>
+</html>

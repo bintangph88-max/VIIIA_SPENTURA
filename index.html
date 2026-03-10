@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kelas VIII-A - Home</title>
+<style>
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #5a5470;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 16px 90px; /* bottom padding for nav */
+  }
+  .container {
+    width: 100%;
+    max-width: 450px;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  h1 {
+    font-weight: 900;
+    font-size: 2.7rem;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  h2 {
+    font-weight: normal;
+    font-size: 1rem;
+    opacity: 0.85;
+    margin-bottom: 18px;
+    text-align: center;
+    letter-spacing: 1.2px;
+  }
+  .photo-card {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.4);
+    margin-bottom: 28px;
+  }
+  .photo-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .overlay-text h3 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .overlay-text p {
+    font-size: 1rem;
+    letter-spacing: 7px;
+    opacity: 0.85;
+    font-weight: 300;
+    margin-top: 0;
+    text-transform: uppercase;
+  }
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 100%;
+  }
+  .menu-card {
+    background: rgba(100, 86, 146, 0.7);
+    border-radius: 18px;
+    padding: 20px 18px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+  }
+  .menu-card:hover, .menu-card:focus {
+    background: rgba(100, 86, 146, 0.9);
+    transform: translateY(-3px);
+    outline: none;
+  }
+  .menu-card i {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    color: white;
+  }
+  .menu-card strong {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .menu-card span {
+    font-size: 0.95rem;
+    opacity: 0.7;
+  }
+  .bottom-nav-wrapper {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 450px;
+    width: 90vw;
+  }
+  .bottom-nav {
+    background: rgba(100, 86, 146, 0.7);
+    box-shadow: 0 0 15px rgba(0,0,0,0.45);
+    border-radius: 35px;
+    padding: 12px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .bottom-nav button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline-offset: 4px;
+    outline: none;
+    padding: 6px 10px;
+    border-radius: 24px;
+    position: relative;
+    transition: background 0.3s ease;
+    min-width: 70px;
+  }
+  .bottom-nav button i {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+  }
+  .bottom-nav button:hover,
+  .bottom-nav button:focus {
+    background: rgba(255 255 255 / 0.15);
+  }
+  .bottom-nav button.active {
+    background: white;
+    color: #5a5470;
+    box-shadow: 0 0 8px white;
+  }
+  @media (max-width: 400px){
+    h1 {
+      font-size: 2rem;
+    }
+    .overlay-text h3 {
+      font-size: 2rem;
+      letter-spacing: 1.5px;
+    }
+    .overlay-text p {
+      font-size: 0.9rem;
+      letter-spacing: 4px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container" role="main" aria-label="Halaman utama Kelaa VIII-A">
+    <h1>Kelas VIII-A</h1>
+    <h2>SMPN 2 BANTUR</h2>
+
+    <div class="photo-card" aria-label="Foto kelompok siswa">
+      <img src="FOTO3.jpg" alt="Foto anak VIII-A SMPN 2 BANTUR" />
+      <div class="overlay-text" aria-hidden="true">
+        <h3>WELCOME</h3>
+        <p>EVERYONE</p>
+      </div>
+    </div>
+
+    <div class="menu-grid" role="list">
+      <a href="https://www.instagram.com/eight.awesome77?igsh=dXUzb3FsaXJlZTh6" target="_blank" rel="noopener noreferrer" class="menu-card" role="listitem" aria-label="Instagram Kami, kunjungi Instagram Kelas VIII-A" tabindex="0">
+        <i class="fab fa-instagram" aria-hidden="true"></i>
+        <strong>Instagram Kami</strong>
+        <span>Kunjungi →</span>
+      </a>
+
+      <a href="anggota-kelas.html" target="_blank" rel="noopener noreferrer" class="menu-card" role="listitem" aria-label="Anggota Kelas, lihat daftar anggota" tabindex="0">
+        <i class="fas fa-user" aria-hidden="true"></i>
+         <strong>Anggota Kelas</strong>
+         <span>Lihat →</span>
+</a>
+
+      <a href="https://www.tiktok.com/@smpn.2.bantur?_r=1&_t=ZS-94Zw9V41xhd" target="_blank" rel="noopener noreferrer" class="menu-card" role="listitem" aria-label="Tiktok Kami, kunjungi TikTok SMPN 2 BANTUR" tabindex="0">
+        <i class="fab fa-tiktok" aria-hidden="true"></i>
+        <strong>Tiktok Kami</strong>
+        <span>Kunjungi →</span>
+      </a>
+
+      <a href="https://ngl.link/the.awesomeclass" target="_blank" rel="noopener noreferrer" class="menu-card" role="listitem" aria-label="Pesan Anonim, mulai kirim pesan anonim" tabindex="0">
+        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+        <strong>Pesan Anonim</strong>
+        <span>Mulai →</span>
+      </a>
+    </div>
+  </div>
+
+  <nav class="bottom-nav-wrapper" role="navigation" aria-label="Navigasi utama">
+    <div class="bottom-nav">
+      <button type="button" aria-label="Gallery" id="btnGallery">
+        <i class="far fa-image" aria-hidden="true"></i>
+        Gallery
+      </button>
+      <button type="button" aria-label="Home" id="btnHome" class="active">
+        <i class="fas fa-home" aria-hidden="true"></i>
+        Home
+      </button>
+      <button type="button" aria-label="Schedules" id="btnSchedules">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        Schedules
+      </button>
+    </div>
+  </nav>
+
+<script>
+  // Navigasi tombol bottom-nav
+  const btnGallery = document.getElementById('btnGallery');
+  const btnHome = document.getElementById('btnHome');
+  const btnSchedules = document.getElementById('btnSchedules');
+
+  function setActive(button) {
+    [btnGallery, btnHome, btnSchedules].forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+  }
+
+  btnGallery.addEventListener('click', () => {
+    window.location.href = 'gallery.html';
+  });
+  btnHome.addEventListener('click', () => {
+    setActive(btnHome);
+  });
+  btnSchedules.addEventListener('click', () => {
+    window.location.href = 'schedules.html';
+  });
+</script>
+</body>
+</html>

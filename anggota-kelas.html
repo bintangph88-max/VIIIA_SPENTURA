@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>C Engineering 1 - Anggota Kelas</title>
+<style>
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #5a5470;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 16px 90px;
+  }
+  .container {
+    width: 100%;
+    max-width: 450px;
+  }
+  h1, h2 {
+    text-align: center;
+  }
+  h1 {
+    font-size: 2.7rem;
+    font-weight: 900;
+    margin-bottom: 6px;
+  }
+  h2 {
+    font-size: 1rem;
+    font-weight: normal;
+    opacity: 0.85;
+    margin-bottom: 18px;
+    letter-spacing: 1.2px;
+  }
+  /* Anggota Kelas Grid */
+  .anggota-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 100%;
+  }
+  .anggota-card {
+    background: rgba(100, 86, 146, 0.7);
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    text-align: center;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+  .anggota-card:hover {
+    transform: translateY(-5px);
+    background: rgba(100, 86, 146, 0.9);
+  }
+  .anggota-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    margin-bottom: 12px;
+  }
+  .anggota-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .anggota-card p {
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+  .anggota-card .role {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-top: 6px;
+  }
+  .bottom-nav-wrapper {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 450px;
+    width: 90vw;
+  }
+  .bottom-nav {
+    background: rgba(100, 86, 146, 0.7);
+    box-shadow: 0 0 15px rgba(0,0,0,0.45);
+    border-radius: 35px;
+    padding: 12px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .bottom-nav button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline-offset: 4px;
+    outline: none;
+    padding: 6px 10px;
+    border-radius: 24px;
+    position: relative;
+    transition: background 0.3s ease;
+    min-width: 70px;
+  }
+  .bottom-nav button i {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+  }
+  .bottom-nav button:hover,
+  .bottom-nav button:focus {
+    background: rgba(255 255 255 / 0.15);
+  }
+  .bottom-nav button.active {
+    background: white;
+    color: #5a5470;
+    box-shadow: 0 0 8px white;
+  }
+  @media(max-width:400px) {
+    h1 { font-size: 2rem; }
+    .anggota-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container" role="main" aria-label="Halaman Anggota Kelas VIII-A">
+    <h1>Kelas VIII-A</h1>
+    <h2>SMPN 2 BANTUR</h2>
+
+    <div class="anggota-grid" aria-label="Daftar Anggota Kelas">
+      <!-- Siswa 1 -->
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 1">
+        <img src="8A_03.jpg" alt="Foto Siswa 1" />
+        <h3>Nama Siswa 1</h3>
+        
+        <p class="role">Ketua Kelas</p>
+      </div>
+
+      <!-- Siswa 2 -->
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 2">
+        <img src="8A_24.jpg" alt="Foto Siswa 2" />
+        <h3>Nama Siswa 2</h3>
+        <p>NIS: 12346</p>
+        <p class="role">Wakil Ketua</p>
+      </div>
+
+      <!-- Siswa 3 -->
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 3">
+        <img src="8A_27.jpg" alt="Foto Siswa 3" />
+        <h3>Nama Siswa 3</h3>
+        <p>NIS: 12347</p>
+        <p class="role">Sekretaris</p>
+      </div>
+
+      <!-- Siswa 4 -->
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 4">
+        <img src="8A_32.jpg" alt="Foto Siswa 4" />
+        <h3>Nama Siswa 4</h3>
+        <p>NIS: 12348</p>
+        <p class="role">Sekretaris 2</p>
+      </div>
+
+      <!-- Siswa 5 -->
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 5">
+        <img src="8A_30.jpg" alt="Foto Siswa 5" />
+        <h3>Nama Siswa 5</h3>
+        <p>NIS: 12349</p>
+        <p class="role">Bendahara</p>
+      </div>
+
+      <!-- Siswa 6 -->
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 6">
+        <img src="8A_10.jpg" alt="Foto Siswa 6" />
+        <h3>Nama Siswa 6</h3>
+        <p>NIS: 12350</p>
+        <p class="role">Bendahara 2</p>
+      </div>
+
+      <!-- Siswa 7 -->
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_01.jpg" alt="Foto Siswa 7" />
+        <h3>Nama Siswa 7</h3>
+        <p>NIS: 12351</p>
+        <p class="role">Anggota</p>
+      </div>
+
+      <!-- Siswa 8 -->
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 8">
+        <img src="8A_02.jpg" alt="Foto Siswa 8" />
+        <h3>Nama Siswa 8</h3>
+        <p>NIS: 12352</p>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_04.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_05.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_06.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_07.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_08.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_09.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_11.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_12.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_13.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa">
+        <img src="8A_14.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_15.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_16.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_17.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_18.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_19.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_20.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_21.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_22.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_23.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_25.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_26.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_28.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_29.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_31.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_33.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_34.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+      
+      <div class="anggota-card" tabindex="0" aria-label="Nama Siswa 7">
+        <img src="8A_35.jpg" alt="Foto Siswa " />
+        <h3>Nama Siswa 7</h3>
+        <p class="role">Anggota</p>
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav-wrapper" role="navigation" aria-label="Navigasi utama">
+    <div class="bottom-nav">
+      <button type="button" aria-label="Gallery" id="btnGallery">
+        <i class="far fa-image" aria-hidden="true"></i>
+        Gallery
+      </button>
+      <button type="button" aria-label="Home" id="btnHome">
+        <i class="fas fa-home" aria-hidden="true"></i>
+        Home
+      </button>
+      <button type="button" aria-label="Schedules" id="btnSchedules">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        Schedules
+      </button>
+    </div>
+  </nav>
+
+<script>
+  const btnGallery = document.getElementById('btnGallery');
+  const btnHome = document.getElementById('btnHome');
+  const btnSchedules = document.getElementById('btnSchedules');
+
+  btnGallery.addEventListener('click', () => {
+    window.location.href = 'gallery.html';
+  });
+  btnHome.addEventListener('click', () => {
+    window.location.href = 'index.html';
+  });
+  btnSchedules.addEventListener('click', () => {
+    window.location.href = 'schedules.html';
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VIII-A - Jadwal Pelajaran</title>
+<style>
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #5a5470;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 16px 90px;
+  }
+  .container {
+    width: 100%;
+    max-width: 450px;
+  }
+  h1, h2 {
+    text-align: center;
+  }
+  h1 {
+    font-size: 2.7rem;
+    font-weight: 900;
+    margin-bottom: 6px;
+  }
+  h2 {
+    font-size: 1rem;
+    font-weight: normal;
+    opacity: 0.85;
+    margin-bottom: 18px;
+    letter-spacing: 1.2px;
+  }
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+  }
+  th, td {
+    background: rgba(100, 86, 146, 0.7);
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 600;
+  }
+  thead th {
+    opacity: 0.9;
+    font-weight: 700;
+  }
+  tbody td {
+    font-weight: 500;
+  }
+  tbody tr:hover td {
+    background: rgba(100, 86, 146, 0.95);
+  }
+  .bottom-nav-wrapper {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 450px;
+    width: 90vw;
+  }
+  .bottom-nav {
+    background: rgba(100, 86, 146, 0.7);
+    box-shadow: 0 0 15px rgba(0,0,0,0.45);
+    border-radius: 35px;
+    padding: 12px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .bottom-nav button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline-offset: 4px;
+    outline: none;
+    padding: 6px 10px;
+    border-radius: 24px;
+    position: relative;
+    transition: background 0.3s ease;
+    min-width: 70px;
+  }
+  .bottom-nav button i {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+  }
+  .bottom-nav button:hover,
+  .bottom-nav button:focus {
+    background: rgba(255 255 255 / 0.15);
+  }
+  .bottom-nav button.active {
+    background: white;
+    color: #5a5470;
+    box-shadow: 0 0 8px white;
+  }
+  @media(max-width:400px) {
+    h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="container" role="main" aria-label="Halaman Jadwal Pelajaran VIII-A">
+    <h1>Kelas VIII-A</h1>
+    <h2>SMPN 2 BATUR</h2>
+
+    <table aria-label="Jadwal Pelajaran">
+      <thead>
+        <tr>
+          <th>Hari</th>
+          <th>Jam</th>
+          <th>Mata Pelajaran</th>
+          <th>Guru</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Senin</td>
+          <td>07:00 - 08:30</td>
+          <td>Matematika</td>
+          <td>Bpk. Ahmad</td>
+        </tr>
+        <tr>
+          <td>Senin</td>
+          <td>08:45 - 10:15</td>
+          <td>Bahasa Indonesia</td>
+          <td>Ibu Sari</td>
+        </tr>
+        <tr>
+          <td>Selasa</td>
+          <td>07:00 - 08:30</td>
+          <td>Fisika</td>
+          <td>Bpk. Joko</td>
+        </tr>
+        <tr>
+          <td>Selasa</td>
+          <td>08:45 - 10:15</td>
+          <td>Kimia</td>
+          <td>Ibu Ani</td>
+        </tr>
+        <tr>
+          <td>Rabu</td>
+          <td>07:00 - 08:30</td>
+          <td>Bahasa Inggris</td>
+          <td>Ibu Dewi</td>
+        </tr>
+        <tr>
+          <td>Rabu</td>
+          <td>08:45 - 10:15</td>
+          <td>Teknologi Informasi</td>
+          <td>Bpk. Rizal</td>
+        </tr>
+        <tr>
+          <td>Kamis</td>
+          <td>07:00 - 08:30</td>
+          <td>Sejarah</td>
+          <td>Ibu Fitri</td>
+        </tr>
+        <tr>
+          <td>Kamis</td>
+          <td>08:45 - 10:15</td>
+          <td>Prakarya</td>
+          <td>Bpk. Hendra</td>
+        </tr>
+        <tr>
+          <td>Jumat</td>
+          <td>07:00 - 08:30</td>
+          <td>Agama</td>
+          <td>Bpk. Yusuf</td>
+        </tr>
+        <tr>
+          <td>Jumat</td>
+          <td>08:45 - 10:15</td>
+          <td>Pendidikan Kewarganegaraan</td>
+          <td>Ibu Lina</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <nav class="bottom-nav-wrapper" role="navigation" aria-label="Navigasi utama">
+    <div class="bottom-nav">
+      <button type="button" aria-label="Gallery" id="btnGallery">
+        <i class="far fa-image" aria-hidden="true"></i>
+        Gallery
+      </button>
+      <button type="button" aria-label="Home" id="btnHome">
+        <i class="fas fa-home" aria-hidden="true"></i>
+        Home
+      </button>
+      <button type="button" aria-label="Schedules" id="btnSchedules" class="active">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        Schedules
+      </button>
+    </div>
+  </nav>
+
+<script>
+  const btnGallery = document.getElementById('btnGallery');
+  const btnHome = document.getElementById('btnHome');
+  const btnSchedules = document.getElementById('btnSchedules');
+
+  btnGallery.addEventListener('click', () => {
+    window.location.href = 'gallery.html';
+  });
+  btnHome.addEventListener('click', () => {
+    window.location.href = 'index.html';
+  });
+  btnSchedules.addEventListener('click', () => {
+    // Sudah di halaman jadwal
+  });
+</script>
+</body>
+</html>
