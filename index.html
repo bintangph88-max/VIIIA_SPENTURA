@@ -214,22 +214,26 @@
     </div>
   </div>
 
-  <nav class="bottom-nav-wrapper" role="navigation" aria-label="Navigasi utama">
-    <div class="bottom-nav">
-      <button type="button" aria-label="Gallery" id="btnGallery">
-        <i class="far fa-image" aria-hidden="true"></i>
-        Gallery
-      </button>
-      <button type="button" aria-label="Home" id="btnHome" class="active">
-        <i class="fas fa-home" aria-hidden="true"></i>
-        Home
-      </button>
-      <button type="button" aria-label="Schedules" id="btnSchedules">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        Schedules
-      </button>
-    </div>
-  </nav>
+  <nav class="bottom-nav-wrapper" role="navigation">
+  <div class="bottom-nav">
+    <button type="button" id="btnHome" onclick="location.href='index.html'">
+      <i class="fas fa-home"></i>
+      Home
+    </button>
+    <button type="button" id="btnGallery" onclick="location.href='gallery.html'">
+      <i class="far fa-image"></i>
+      Gallery
+    </button>
+    <button type="button" id="btnGame" onclick="location.href='game.html'">
+      <i class="fas fa-gamepad"></i>
+      Games
+    </button>
+    <button type="button" id="btnSchedules" onclick="location.href='schedules.html'">
+      <i class="far fa-calendar-alt"></i>
+      Schedules
+    </button>
+  </div>
+</nav>
 
 <script>
   // Navigasi tombol bottom-nav
