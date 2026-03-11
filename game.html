@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicTacToe Game</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            user-select: none;
+            color: white;
+        }
+
+        main {
+            background: #0A0519;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #header {
+            display: flex;
+            width: 235px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        #header .player {
+            background: #17122A;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 12px;
+            border: solid 4px #17122A;
+            opacity: 0.5;
+            transition: 0.3s;
+        }
+
+        #header .player:hover {
+            border: solid 4px #2A2343;
+        }
+
+        #header .player-active {
+            opacity: 1;
+            border: solid 4px #2A2343;
+        }
+
+        #header #xPlayerDisplay {
+            color: #1892EA;
+        }
+
+        #header #oPlayerDisplay {
+            color: #A737FF;
+        }
+
+        #board {
+            display: grid;
+            grid-template-columns: repeat(3, 70px);
+            grid-template-rows: repeat(3, 70px);
+            gap: 12px;
+        }
+
+        #board .cell {
+            background: #17122A;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s background;
+        }
+
+        #board .cell:hover {
+            background: #2A2343;
+        }
+
+        #restartBtn {
+            margin-top: 30px;
+            width: 235px;
+            background: #17122A;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s background;
+            visibility: hidden;
+        }
+
+        #restartBtn:hover {
+            background: #2A2343;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <header id="header">
+            <div class="player player-active"
+            id="xPlayerDisplay"
+            onclick="choosePlayer('X')">
+            X
+            </div>
+            <h3 id="titleHeader">Choose</h3>
+            <div class="player"
+            id="oPlayerDisplay"
+            onclick="choosePlayer('O')">
+            O
+            </div>
+        </header>
+
+        <div id="board">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+
+        <button id="restartBtn">
+            Restart
+        </button>
+    </main>
+
+    <script>
+        const cells = document.querySelectorAll('.cell')
+        const titleHeader = document.querySelector('#titleHeader')
+        const xPlayerDisplay = document.querySelector('#xPlayerDisplay')
+        const oPlayerDisplay = document.querySelector('#oPlayerDisplay')
+        const restartBtn = document.querySelector('#restartBtn')
+
+        let player = 'X'
+        let isPauseGame = false
+        let isGameStart = false
+
+        const inputCells = ['', '', '', '', '', '', '', '', '']
+
+        const winConditions = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+            [0, 4, 8], [2, 4, 6] // Diagonals
+        ]
+
+        cells.forEach((cell, index) => {
+            cell.addEventListener('click', () => tapCell(cell, index))
+        })
+
+        function tapCell(cell, index) {
+            if (cell.textContent == '' && !isPauseGame) {
+                isGameStart = true
+                updateCell(cell, index)
+
+                if (!checkWinner()) {
+                    changePlayer()
+                    randomPick()
+                }
+            }
+        }
+
+        function updateCell(cell, index) {
+            cell.textContent = player
+            inputCells[index] = player
+            cell.style.color = (player == 'X') ? '#1892EA' : '#A737FF'
+        }
+
+        function changePlayer() {
+            player = (player == 'X') ? 'O' : 'X'
+        }
+
+        function randomPick() {
+            isPauseGame = true
+            setTimeout(() => {
+                let randomIndex
+                do {
+                    randomIndex = Math.floor(Math.random() * inputCells.length)
+                } while (inputCells.every(c => c !== '') === false && inputCells[randomIndex] != '')
+
+                if (inputCells.every(c => c !== '')) return;
+
+                updateCell(cells[randomIndex], randomIndex)
+                
+                if (!checkWinner()) {
+                    changePlayer()
+                    isPauseGame = false
+                } else {
+                    // Jika komputer menang, jangan ganti player lagi agar nama pemenang benar
+                }
+            }, 1000)
+        }
+
+        function checkWinner() {
+            for (const [a, b, c] of winConditions) {
+                if (inputCells[a] == player && inputCells[b] == player && inputCells[c] == player) {
+                    declareWinner([a, b, c])
+                    return true
+                }
+            }
+            
+            if (inputCells.every(cell => cell != '')) {
+                declareDraw()
+                return true
+            }
+            return false
+        }
+
+        function declareWinner(winningIndices) {
+            titleHeader.textContent = `${player} Win`
+            isPauseGame = true
+            winningIndices.forEach((index) => cells[index].style.background = '#2A2343')
+            restartBtn.style.visibility = 'visible'
+        }
+
+        function declareDraw() {
+            titleHeader.textContent = 'Draw!'
+            isPauseGame = true
+            restartBtn.style.visibility = 'visible'
+        }
+
+        function choosePlayer(selectedPlayer) {
+            if (!isGameStart) {
+                player = selectedPlayer
+                if (player == 'X') {
+                    xPlayerDisplay.classList.add('player-active')
+                    oPlayerDisplay.classList.remove('player-active')
+                } else {
+                    xPlayerDisplay.classList.remove('player-active')
+                    oPlayerDisplay.classList.add('player-active')
+                }
+            }
+        }
+
+        restartBtn.addEventListener('click', () => {
+            restartBtn.style.visibility = 'hidden'
+            inputCells.fill('')
+            cells.forEach(cell => {
+                cell.textContent = ''
+                cell.style.background = ''
+            })
+            isPauseGame = false
+            isGameStart = false
+            titleHeader.textContent = 'Choose'
+            // Reset player-active UI to match default/selected
+            choosePlayer(player) 
+        })
+    </script>
+</body>
+</html>
