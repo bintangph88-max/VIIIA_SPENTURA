@@ -168,6 +168,18 @@
   btnSchedules.addEventListener('click', () => {
     window.location.href = 'schedules.html';
   });
+  
+  btnSchedules.addEventListener('click', () => {
+  window.location.href = 'schedules.html';
+});
+
+// TAMBAHKAN INI JIKA BELUM ADA TOMBOL GAME DI NAVIGASI KAMU
+const btnGame = document.getElementById('btnGame'); 
+if(btnGame) {
+  btnGame.addEventListener('click', () => {
+    window.location.href = 'game.html';
+  });
+}
 </script>
 </body>
 </html>
